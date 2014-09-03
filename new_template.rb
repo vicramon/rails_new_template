@@ -11,28 +11,32 @@ gem 'puma'
 
 gem_group :production do
   gem 'rails_12factor'
+end
 
 gem_group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'dotenv-rails'
   gem 'quiet_assets'
 end
 
-gem_group :development, :test do
-  gem 'cucumber-rails'
+gem_group :test do
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  gem 'fabrication'
-  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
+end
+
+gem_group :development, :test do
+  gem 'dotenv-rails'
+  gem 'fabrication'
+  gem 'pry-rails'
 end
 
 run "rvm gemset create #{app_name}"
 run "rvm gemset use #{app_name}"
 run "bundle install"
 
-rake "db:create"
+rake "db:create:all"
 rake "db:migrate"
 
 generate "rspec:install"
