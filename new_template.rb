@@ -2,9 +2,8 @@
 #
 # To use this template:
 #
-# $ rails new <app_name> -m new_template.rb -S -T -d postgresql
+# $ rails new <app_name> -m new_template.rb -B -T -d postgresql
 
-# Install gems
 gem 'adequate_exposure'
 gem 'ffaker'
 gem 'haml-rails'
